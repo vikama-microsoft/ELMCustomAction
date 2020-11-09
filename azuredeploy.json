@@ -77,7 +77,7 @@
                "triggers":{
                   "openAuthenticationPolicies":{
                      "policies":{
-                        "Testvikama":{
+                        "ELMAuthPolicy":{
                            "type":"AAD",
                            "claims":[
                               {
