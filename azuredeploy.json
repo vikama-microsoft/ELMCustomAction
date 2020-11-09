@@ -20,15 +20,41 @@
                     "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
                     "contentVersion": "1.0.0.0",
                     "parameters": {},
+                    "accessControl": {
+                        "triggers": {
+                           "openAuthenticationPolicies": {
+                              "policies": {
+                                 "ELMAuthPolicy": {
+                                    "type": "AAD",
+                                    "claims": [
+                                       {
+                                          "name": "Issuer",
+                                          "value": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/"
+                                       },
+                                       {
+                                          "name": "Audience",
+                                          "value": "https://management.core.windows.net/"
+                                       },
+                                       {
+                                          "name": "appid",
+                                          "value": "810dcf14-1858-4bf2-8134-4c369fa3235b"
+                                       }
+                                    ]
+                                 }
+                              }
+                           },
+                            "manual": {
+                                "type": "Request",
+                                "kind": "Http",
+                                "inputs": {
+                                    "schema": {}
+                                },
+                                "operationOptions": "IncludeAuthorizationHeadersInOutputs"
+                            }
+                        },
+                     },
                     "triggers": {
-                        "manual": {
-                            "type": "Request",
-                            "kind": "Http",
-                            "inputs": {
-                                "schema": {}
-                            },
-                            "operationOptions": "IncludeAuthorizationHeadersInOutputs"
-                        }
+                        
                     },
                     "actions": {
                         "Response": {
