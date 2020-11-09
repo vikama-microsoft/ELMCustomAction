@@ -11,14 +11,7 @@
       },
       "location":{
          "type":"String",
-         "allowedValues":[
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "South East Asia",
-            "westcentralus"
-         ],
+         "defaultValue":"westcentralus",
          "metadata":{
             "Description":"Deployment location"
          }
