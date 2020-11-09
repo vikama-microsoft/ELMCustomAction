@@ -52,11 +52,11 @@
                   "type": "AAD",
                   "claims": [
                     {
-                      "name": "Issuer",
+                      "name": "iss",
                       "value": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/"
                     },
                     {
-                      "name": "Audience",
+                      "name": "aud",
                       "value": "https://management.core.windows.net/"
                     },
                     {
