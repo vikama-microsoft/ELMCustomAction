@@ -40,7 +40,68 @@
                      "kind":"Http",
                      "inputs":{
                         "schema":{
-                           
+                           "properties":{
+                              "AccessPackageId":{
+                                 "type":"string"
+                              },
+                              "AccessPackageName":{
+                                 "type":"string"
+                              },
+                              "AccessPackagePolicyName":{
+                                 "type":"string"
+                              },
+                              "CatalogId":{
+                                 "type":"string"
+                              },
+                              "CatalogName":{
+                                 "type":"string"
+                              },
+                              "ConnectedOrganizationName":{
+                                 "type":"string"
+                              },
+                              "Event":{
+                                 "type":"string"
+                              },
+                              "GrantRequestCreatedDateTime":{
+                                 "type":"string"
+                              },
+                              "Roles":{
+                                 "items":{
+                                    "properties":{
+                                       "Id":{
+                                          "type":"string"
+                                       },
+                                       "Name":{
+                                          "type":"string"
+                                       },
+                                       "ResourceId":{
+                                          "type":"string"
+                                       },
+                                       "ResourceName":{
+                                          "type":"string"
+                                       }
+                                    },
+                                    "required":[
+                                       "Id",
+                                       "Name",
+                                       "ResourceId",
+                                       "ResourceName"
+                                    ],
+                                    "type":"object"
+                                 },
+                                 "type":"array"
+                              },
+                              "UserEmail":{
+                                 "type":"string"
+                              },
+                              "UserId":{
+                                 "type":"string"
+                              },
+                              "UserName":{
+                                 "type":"string"
+                              }
+                           },
+                           "type":"object"
                         }
                      },
                      "operationOptions":"IncludeAuthorizationHeadersInOutputs"
