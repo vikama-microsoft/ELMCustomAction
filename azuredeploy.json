@@ -1,75 +1,104 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "workflows_name": {
-      "defaultValue": "ELMCustomAction",
-      "type": "String"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Logic/workflows",
-      "apiVersion": "2017-07-01",
-      "name": "[parameters('workflows_name')]",
-      "location": "westcentralus",
-      "properties": {
-        "state": "Enabled",
-        "definition": {
-          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "triggers": {
-            "manual": {
-              "type": "Request",
-              "kind": "Http",
-              "inputs": {
-                "schema": {}
-              },
-              "operationOptions": "IncludeAuthorizationHeadersInOutputs"
-            }
-          },
-          "actions": {
-            "Response": {
-              "runAfter": {},
-              "type": "Response",
-              "kind": "Http",
-              "inputs": {
-                "body": "@triggerOutputs()",
-                "statusCode": 200
-              }
-            }
-          },
-          "outputs": {}
-        },
-        "parameters": {},
-        "accessControl": {
-          "triggers": {
-            "openAuthenticationPolicies": {
-              "policies": {
-                "ELMAuthPolicy": {
-                  "type": "AAD",
-                  "claims": [
-                    {
-                      "name": "iss",
-                      "value": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/"
-                    },
-                    {
-                      "name": "aud",
-                      "value": "https://management.core.windows.net/"
-                    },
-                    {
-                      "name": "appid",
-                      "value": "810dcf14-1858-4bf2-8134-4c369fa3235b"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
+   "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion":"1.0.0.0",
+   "parameters":{
+      "name":{
+         "defaultValue":"ELMCustomAction",
+         "type":"String",
+         "metadata":{
+            "Description":"Name of the Logicapp"
+         }
+      },
+      "location":{
+         "type":"String",
+         "allowedValues":[
+            "East US",
+            "West US",
+            "West Europe",
+            "East Asia",
+            "South East Asia",
+            "westcentralus"
+         ],
+         "metadata":{
+            "Description":"Deployment location"
+         }
       }
-    }
-  ]
+   },
+   "variables":{
+      
+   },
+   "resources":[
+      {
+         "type":"Microsoft.Logic/workflows",
+         "apiVersion":"2017-07-01",
+         "name":"[parameters('name')]",
+         "location":"[parameters('workflows_name')]",
+         "properties":{
+            "state":"Enabled",
+            "definition":{
+               "$schema":"https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+               "contentVersion":"1.0.0.0",
+               "parameters":{
+                  
+               },
+               "triggers":{
+                  "manual":{
+                     "type":"Request",
+                     "kind":"Http",
+                     "inputs":{
+                        "schema":{
+                           
+                        }
+                     },
+                     "operationOptions":"IncludeAuthorizationHeadersInOutputs"
+                  }
+               },
+               "actions":{
+                  "Response":{
+                     "runAfter":{
+                        
+                     },
+                     "type":"Response",
+                     "kind":"Http",
+                     "inputs":{
+                        "body":"@triggerOutputs()",
+                        "statusCode":200
+                     }
+                  }
+               },
+               "outputs":{
+                  
+               }
+            },
+            "parameters":{
+               
+            },
+            "accessControl":{
+               "triggers":{
+                  "openAuthenticationPolicies":{
+                     "policies":{
+                        "Testvikama":{
+                           "type":"AAD",
+                           "claims":[
+                              {
+                                 "name":"iss",
+                                 "value":"https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/"
+                              },
+                              {
+                                 "name":"aud",
+                                 "value":"https://management.core.windows.net/"
+                              },
+                              {
+                                 "name":"appid",
+                                 "value":"810dcf14-1858-4bf2-8134-4c369fa3235b"
+                              }
+                           ]
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   ]
 }
