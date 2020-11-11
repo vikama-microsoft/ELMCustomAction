@@ -108,16 +108,24 @@
                   }
                },
                "actions":{
-                  "Response":{
+                  "Condition":{
+                     "actions":{
+                        
+                     },
+                     "expression":{
+                        "and":[
+                           {
+                              "equals":[
+                                 "@triggerBody()?['Event']",
+                                 ""
+                              ]
+                           }
+                        ]
+                     },
                      "runAfter":{
                         
                      },
-                     "type":"Response",
-                     "kind":"Http",
-                     "inputs":{
-                        "body":"@triggerOutputs()",
-                        "statusCode":200
-                     }
+                     "type":"If"
                   }
                },
                "outputs":{
