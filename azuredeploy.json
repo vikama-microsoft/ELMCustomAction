@@ -144,11 +144,11 @@
                            "claims":[
                               {
                                  "name":"iss",
-                                 "value":"https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/"
+                                 "value":"[concat('https://sts.windows.net/', subscription().tenantId, '/')]"
                               },
                               {
                                  "name":"aud",
-                                 "value":"https://management.core.windows.net/"
+                                 "value":"[environment().authentication.audiences[0]]"
                               },
                               {
                                  "name":"appid",
