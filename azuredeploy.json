@@ -116,7 +116,7 @@
                     "actions": {
                         "Response": {
                             "inputs": {
-                                "body": "CatalogId mismatch,  expected : '[parameters('catalogId')]', Provided: @{triggerBody()?['CatalogId']}",
+                                "body": "CatalogId mismatch,  expected : [parameters('catalogId')], Provided: @{triggerBody()?['CatalogId']}",
                                 "statusCode": 400
                             },
                             "kind": "http",
