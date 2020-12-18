@@ -110,19 +110,34 @@
                   }
                },
                "actions":{
-                  "Condition":{
-                     "expression":{
-                        "and":[
-                           {
-                              "equals":[
-                                 "@triggerBody()?['CatalogId']",
-                                 "[parameters('catalogId')]"
-                              ]
-                           }
-                        ]
-                     },
-                     "type":"If"
-                  }
+                  "Condition": {
+                "actions": {},
+                "else": {
+                    "actions": {
+                        "Response": {
+                            "inputs": {
+                                "body": "CatalogId mismatch,  expected : '[parameters('catalogId')]', Provided: @{triggerBody()?['CatalogId']}",
+                                "statusCode": 400
+                            },
+                            "kind": "http",
+                            "runAfter": {},
+                            "type": "Response"
+                        }
+                    }
+                },
+                "expression": {
+                    "and": [
+                        {
+                            "equals": [
+                                "@triggerBody()?['CatalogId']",
+                                "[parameters('catalogId')]"
+                            ]
+                        }
+                    ]
+                },
+                "runAfter": {},
+                "type": "If"
+            }
                },
                "outputs":{
                   
