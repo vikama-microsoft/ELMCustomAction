@@ -116,7 +116,7 @@
                            {
                               "equals":[
                                  "@triggerBody()?['CatalogId']",
-                                 "[parameters('location')]"
+                                 "[parameters('catalogId')]"
                               ]
                            }
                         ]
