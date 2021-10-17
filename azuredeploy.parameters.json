@@ -5,8 +5,8 @@
 		"name": {
 			"value": "ELM-custom-action"
 		},
-      "catalogId": {
-			"value": ""
+		"catalogId": {
+			"value": "GEN-GUID"
 		}
 	}
 }
